@@ -1,0 +1,42 @@
+diff --git a/examples/imx7_colibri_m4/pin_mux.c b/examples/imx7_colibri_m4/pin_mux.c
+index 1bb007e..73dfaf0 100644
+--- a/examples/imx7_colibri_m4/pin_mux.c
++++ b/examples/imx7_colibri_m4/pin_mux.c
+@@ -220,6 +220,15 @@ void configure_ecspi_pins(ECSPI_Type* base)
+ 			IOMUXC_SW_PAD_CTL_PAD_I2C2_SDA_HYS_MASK;
+ }
+ 
++void configure_pwm_pins(PWM_Type* base)
++{
++        // PWM2 iomux configuration
++
++        /* iomux */
++        IOMUXC_SW_MUX_CTL_PAD_GPIO1_IO09 = IOMUXC_SW_MUX_CTL_PAD_GPIO1_IO09_MUX_MODE(7);
++
++}
++
+ /*******************************************************************************
+  * EOF
+  ******************************************************************************/
+diff --git a/examples/imx7_colibri_m4/pin_mux.h b/examples/imx7_colibri_m4/pin_mux.h
+index 8ca7a7c..be0a59e 100644
+--- a/examples/imx7_colibri_m4/pin_mux.h
++++ b/examples/imx7_colibri_m4/pin_mux.h
+@@ -99,6 +99,16 @@ void configure_uart_pins(UART_Type* base);
+ */
+ void configure_ecspi_pins(ECSPI_Type* base);
+ 
++/*!
++**     @brief
++**         PWM method sets registers according routing settings. Call
++**         this method code to route desired pins into:
++**         PWM1, PWM2, PWM3, PWM4
++**         peripherals.
++**     @param
++**         PWM_Type* base - PWM base address 1..4
++*/
++void configure_pwm_pins(PWM_Type* base);
+ 
+ #endif /* __PIN_MUX_H__ */
+ /*******************************************************************************
+

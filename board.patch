@@ -1,0 +1,19 @@
+diff --git a/examples/imx7_colibri_m4/board.h b/examples/imx7_colibri_m4/board.h
+index 0422ae7..cc6161e 100644
+--- a/examples/imx7_colibri_m4/board.h
++++ b/examples/imx7_colibri_m4/board.h
+@@ -166,6 +166,14 @@
+ #define BOARD_FLEXCAN_IRQ_NUM                 FLEXCAN1_IRQn
+ #define BOARD_FLEXCAN_HANDLER                 FLEXCAN1_Handler
+ 
++/* PWM information for this board */
++#define BOARD_PWM_RDC_PDAP                rdcPdapPwm2
++#define BOARD_PWM_CCM_CCGR                ccmCcgrGatePwm2
++#define BOARD_PWM_BASEADDR                PWM2
++#define BOARD_PWM_IRQ_NUM                 PWM2_IRQn
++#define BOARD_PWM_HANDLER                 PWM2_Handler
++
++
+ /* GPC information for this board*/
+ #define BOARD_GPC_BASEADDR                    GPC
+ 
